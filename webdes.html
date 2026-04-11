@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>NUSWeb | Gateway to Digital Excellence</title>
+  <!-- Font Awesome 6 (Free Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter + Poppins for modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafc;
+      color: #1e293b;
+      scroll-behavior: smooth;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header & Navbar */
+    header {
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      width: 48px;
+      height: 48px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 14px rgba(37, 99, 235, 0.25);
+    }
+
+    .logo-icon i {
+      font-size: 28px;
+      color: white;
+    }
+
+    .logo-text h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      background: linear-gradient(125deg, #0f2b5c, #2563eb);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+    .logo-text span {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: #4b5563;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1f2937;
+      transition: 0.2s;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #2563eb;
+      border-bottom-color: #2563eb;
+    }
+
+    /* search facility */
+    .search-container {
+      background: white;
+      border-radius: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      padding: 0.3rem 0.3rem 0.3rem 1rem;
+      min-width: 260px;
+    }
+
+    .search-container input {
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+      padding: 8px 0;
+      flex: 1;
+      background: transparent;
+    }
+
+    .search-container button {
+      background: #2563eb;
+      border: none;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .search-container button:hover {
+      background: #1d4ed8;
+    }
+
+    /* body icons row (services icons) */
+    .services-section {
+      margin: 3rem 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #0f172a;
+    }
+
+    .icons-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      width: 140px;
+      transition: all 0.25s;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+      border: 1px solid #eef2ff;
+    }
+
+    .service-card i {
+      font-size: 2.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Different icon colors for visual variety */
+    .service-card:nth-child(1) i { color: #3b82f6; }
+    .service-card:nth-child(2) i { color: #ec489a; }
+    .service-card:nth-child(3) i { color: #8b5cf6; }
+    .service-card:nth-child(4) i { color: #10b981; }
+    .service-card:nth-child(5) i { color: #f59e0b; }
+    .service-card:nth-child(6) i { color: #ef4444; }
+    .service-card:nth-child(7) i { color: #06b6d4; }
+
+    .service-card p {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+      border-color: #cbd5e1;
+    }
+
+    /* forms row: services subscription + additional subscription (footer) but we embed app form */
+    .forms-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .form-card {
+      flex: 1;
+      min-width: 280px;
+      background: white;
+      border-radius: 32px;
+      padding: 1.8rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+      border: 1px solid #e9edf2;
+    }
+
+    .form-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .form-card p {
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      margin: 8px 0 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 28px;
+      font-family: inherit;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+    }
+
+    .btn-submit {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    .btn-submit:hover {
+      background: #1e40af;
+    }
+
+    /* strip of photos (linked to websites) */
+    .photo-strip {
+      background: #f1f5f9;
+      border-radius: 48px;
+      padding: 1.2rem 1rem;
+      margin: 2rem 0 2rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .strip-inner {
+      display: inline-flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .strip-item {
+      display: inline-block;
+      transition: 0.2s;
+      border-radius: 24px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .strip-item a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      background: white;
+    }
+
+    .strip-item i {
+      font-size: 1.4rem;
+      color: #2563eb;
+    }
+
+    .strip-item:hover {
+      transform: scale(1.02);
+      background: #eef2ff;
+    }
+
+    /* footer */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 3rem 0 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col {
+      min-width: 150px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-col a, .footer-col p {
+      display: block;
+      color: #cbd5e1;
+      text-decoration: none;
+      margin: 0.5rem 0;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .footer-col a:hover {
+      color: white;
+      padding-left: 4px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 1.4rem;
+      color: #cbd5e1;
+    }
+
+    .social-icons a:hover {
+      color: white;
+    }
+
+    .footer-sub-form input {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: white;
+      border-radius: 60px;
+    }
+
+    .footer-sub-form button {
+      background: #2563eb;
+      border: none;
+      border-radius: 60px;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #1e293b;
+      padding-top: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .search-container {
+        width: 100%;
+      }
+      .icons-grid {
+        gap: 1rem;
+      }
+      .service-card {
+        width: 120px;
+        padding: 1rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <div class="logo-text">
+          <h1>NUSWEB</h1>
+          <span>digital ecosystem</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" id="nav-home" class="active">Home</a></li>
+        <li><a href="#" id="nav-projects">Projects</a></li>
+        <li><a href="#" id="nav-partnership">Partnership</a></li>
+        <li><a href="#" id="nav-contact">Contact</a></li>
+      </ul>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search my GitHub repos / links...">
+        <button id="searchBtn"><i class="fas fa-search"></i> Go</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- small size icons for services (including Web Designing Logo/Icon) -->
+    <div class="services-section">
+      <div class="section-title">⚡ Our Expertise Areas</div>
+      <div class="icons-grid">
+        <div class="service-card"><i class="fas fa-code"></i><p>Computer Programming</p></div>
+        <div class="service-card"><i class="fas fa-paintbrush"></i><p>Web Designing</p></div>
+        <div class="service-card"><i class="fas fa-laptop-code"></i><p>Web Developing</p></div>
+        <div class="service-card"><i class="fas fa-server"></i><p>Web Hosting</p></div>
+        <div class="service-card"><i class="fas fa-chalkboard-user"></i><p>Training</p></div>
+        <div class="service-card"><i class="fas fa-pen-nib"></i><p>Logo Designing</p></div>
+        <!-- Additional Web Designing Logo variant for emphasis (optional but showcases extra) 
+             We'll add a distinct Web Designing specific badge icon for better representation -->
+        <div class="service-card"><i class="fas fa-palette"></i><p>UI/UX Design</p></div>
+      </div>
+    </div>
+
+    <!-- services subscription application form linked to https://formspree.io/f/xojpznbv -->
+    <div class="forms-row">
+      <div class="form-card">
+        <h3><i class="fas fa-rocket"></i> Service Subscription</h3>
+        <p>Apply for digital services — web dev, logo, hosting & more.</p>
+        <form id="serviceSubscriptionForm" action="https://formspree.io/f/xojpznbv" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <select name="service" required>
+            <option value="">Select Service</option>
+            <option>Computer Programming</option>
+            <option>Web Designing</option>
+            <option>Web Developing</option>
+            <option>Web Hosting</option>
+            <option>Training</option>
+            <option>Logo Designing</option>
+          </select>
+          <textarea name="message" rows="2" placeholder="Project details..."></textarea>
+          <button type="submit" class="btn-submit">Subscribe Now →</button>
+        </form>
+      </div>
+
+      <!-- Extra subscription area for newsletter (linked to formspree database) -->
+      <div class="form-card">
+        <h3><i class="fas fa-bell"></i> Newsletter & Updates</h3>
+        <p>Join our community — get latest projects & promos.</p>
+        <form id="newsletterFooterForm" action="https://formspree.io/f/xzzekvlr" method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Email address" required>
+          <button type="submit" class="btn-submit">Subscribe →</button>
+        </form>
+        <p style="font-size: 0.75rem; margin-top: 12px;">We respect your privacy. No spam.</p>
+      </div>
+    </div>
+
+    <!-- strip of photos linked to websites (external/internal links) -->
+    <div class="photo-strip">
+      <div class="strip-inner">
+        <div class="strip-item"><a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub Explore</a></div>
+        <div class="strip-item"><a href="https://stackoverflow.com" target="_blank"><i class="fab fa-stack-overflow"></i> Stack Overflow</a></div>
+        <div class="strip-item"><a href="https://codepen.io" target="_blank"><i class="fab fa-codepen"></i> CodePen</a></div>
+        <div class="strip-item"><a href="https://web.dev" target="_blank"><i class="fas fa-chrome"></i> Web.dev</a></div>
+        <div class="strip-item"><a href="https://fonts.google.com" target="_blank"><i class="fas fa-font"></i> Google Fonts</a></div>
+        <div class="strip-item"><a href="https://vercel.com" target="_blank"><i class="fas fa-cloud"></i> Vercel</a></div>
+        <div class="strip-item"><a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i> Dribbble</a></div>
+        <div class="strip-item"><a href="https://figma.com" target="_blank"><i class="fab fa-figma"></i> Figma</a></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4><i class="fas fa-compass"></i> NUSWEB</h4>
+        <a href="#" id="footerHomeLink">Home</a>
+        <a href="#" id="footerProjectsLink">Projects</a>
+        <a href="#" id="footerPartnershipLink">Partnership</a>
+        <a href="#" id="footerContactLink">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4><i class="fas fa-phone-alt"></i> Telephone</h4>
+        <p>+1 (800) 456-7890</p>
+        <p>+44 20 7946 0138</p>
+        <h4 style="margin-top: 1rem;"><i class="fas fa-tag"></i> Promotions</h4>
+        <p>Summer Web Dev Deal</p>
+        <p>Free Hosting 3 months</p>
+      </div>
+      <div class="footer-col">
+        <h4><i class="fas fa-folder-open"></i> Projects</h4>
+        <a href="#">AI Portfolio Hub</a>
+        <a href="#">Eco Commerce Suite</a>
+        <a href="#">Cloud Dashboard</a>
+        <a href="#">Design System Lab</a>
+      </div>
+      <div class="footer-col">
+        <h4><i class="fas fa-envelope"></i> Contacts</h4>
+        <p>hello@nusweb.com</p>
+        <p>support@nusweb.com</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col footer-sub-form">
+        <h4><i class="fas fa-newspaper"></i> Subscription</h4>
+        <form id="footerSubscriptionDbForm" action="https://formspree.io/f/xzzekvlr" method="POST">
+          <input type="email" name="email" placeholder="Your email" required>
+          <button type="submit" class="btn-submit" style="margin-top: 6px;">Subscribe</button>
+        </form>
+        <p style="font-size:0.7rem; margin-top: 10px;">Get projects & promos directly</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 NUSWEB — Innovate, Build, Elevate. All trademarks reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------------------- SEARCH FACILITY: access any website links in my github.com account ------------------
+  // This search simulates searching through your GitHub repositories/links.
+  // For demonstration, we create a dynamic index of your GitHub-related links + some demo projects.
+  // The user can search for keywords like "repo", "portfolio", "project" etc. and will be redirected to matching website from your github or external preview.
+  // Since actual GitHub links are specific, we define a set of useful links (including your github profile & repos if provided)
+  // You can replace these URLs with your actual GitHub project links.
+  
+  const githubLinksDatabase = [
+    { name: "GitHub Profile", url: "https://github.com/yourusername", keywords: ["profile", "github", "account"] },
+    { name: "NUSWeb Main Repo", url: "https://github.com/yourusername/nusweb-portfolio", keywords: ["nusweb", "main", "repo", "portfolio"] },
+    { name: "Web Dev Projects Repo", url: "https://github.com/yourusername/web-dev-projects", keywords: ["web", "development", "coding"] },
+    { name: "Programming Labs", url: "https://github.com/yourusername/programming-labs", keywords: ["programming", "labs", "code"] },
+    { name: "Design System Repo", url: "https://github.com/yourusername/design-system", keywords: ["design", "logo", "ui"] },
+    { name: "Hosting Demo Site", url: "https://github.com/yourusername/hosting-demo", keywords: ["hosting", "deploy"] },
+    { name: "Training Resources", url: "https://github.com/yourusername/training-materials", keywords: ["training", "course"] },
+    { name: "Open Source Contributions", url: "https://github.com/yourusername/contributions", keywords: ["opensource", "contribute"] },
+    { name: "Web Designing Showcase", url: "https://github.com/yourusername/webdesign-portfolio", keywords: ["webdesign", "designing", "ui", "ux"] }
+  ];
+  
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  
+  function performSearch() {
+    const query = searchInput.value.trim().toLowerCase();
+    if (query === "") {
+      alert("Please enter a keyword (e.g., repo, programming, design, hosting, webdesign) to search my GitHub links.");
+      return;
+    }
+    // Filter matches based on name and keywords
+    const matches = githubLinksDatabase.filter(item => 
+      item.name.toLowerCase().includes(query) || 
+      item.keywords.some(kw => kw.includes(query) || query.includes(kw))
+    );
+    if (matches.length === 0) {
+      alert(`No matching links found for "${query}". Try: profile, repo, web, programming, design, hosting, training, webdesign`);
+      return;
+    }
+    if (matches.length === 1) {
+      window.open(matches[0].url, '_blank');
+    } else {
+      const firstMatch = matches[0];
+      const confirmOpen = confirm(`Found ${matches.length} results: ${matches.map(m=>m.name).join(", ")}. Open "${firstMatch.name}"? (Cancel to see other options)`);
+      if (confirmOpen) {
+        window.open(firstMatch.url, '_blank');
+      } else if (matches.length > 1) {
+        const second = matches[1];
+        if(confirm(`Open "${second.name}" instead?`)) window.open(second.url, '_blank');
+        else alert("Use more specific keywords or browse our projects section.");
+      }
+    }
+  }
+  
+  searchBtn.addEventListener('click', performSearch);
+  searchInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') performSearch(); });
+  
+  // -------- NAVBAR interactions: linking Home to index.html, other sections show info
+  const homeLink = document.getElementById('nav-home');
+  const projectsLink = document.getElementById('nav-projects');
+  const partnershipLink = document.getElementById('nav-partnership');
+  const contactLink = document.getElementById('nav-contact');
+  const footerHome = document.getElementById('footerHomeLink');
+  const footerProjects = document.getElementById('footerProjectsLink');
+  const footerPartnership = document.getElementById('footerPartnershipLink');
+  const footerContact = document.getElementById('footerContactLink');
+  
+  function setActive(activeId) {
+    [homeLink, projectsLink, partnershipLink, contactLink].forEach(link => {
+      if(link) link.classList.remove('active');
+    });
+    const activeElem = document.getElementById(activeId);
+    if(activeElem) activeElem.classList.add('active');
+  }
+  
+  // Home -> index.html (or refresh)
+  if(homeLink) {
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'index.html';
+      setActive('nav-home');
+    });
+  }
+  if(footerHome) {
+    footerHome.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'index.html';
+    });
+  }
+  
+  if(projectsLink) {
+    projectsLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("🚀 Projects: Explore our open-source work & live demos. Check the search facility or GitHub links above.");
+      setActive('nav-projects');
+    });
+  }
+  if(footerProjects) {
+    footerProjects.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("🚀 Our projects include NUSWeb framework, AI tools, and design systems.");
+    });
+  }
+  
+  if(partnershipLink) {
+    partnershipLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("🤝 Partnership: Collaborate with NUSWeb for innovative digital solutions. Contact partnerships@nusweb.com");
+      setActive('nav-partnership');
+    });
+  }
+  if(footerPartnership) {
+    footerPartnership.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("🤝 Let's grow together! Reach out for partnership opportunities.");
+    });
+  }
+  
+  if(contactLink) {
+    contactLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("📞 Contact us: email hello@nusweb.com or call +1 (800) 456-7890");
+      setActive('nav-contact');
+    });
+  }
+  if(footerContact) {
+    footerContact.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("📞 We're here 24/7. Send us a message via contact form or social media.");
+    });
+  }
+  
+  // Optional: Formspree submissions - native behavior with redirect, just add logging
+  const serviceForm = document.getElementById('serviceSubscriptionForm');
+  const newsForm = document.getElementById('newsletterFooterForm');
+  const footerSubDb = document.getElementById('footerSubscriptionDbForm');
+  
+  function handleFormSubmit(event, formName) {
+    // Form will submit natively to Formspree; we just log for debugging
+    console.log(`${formName} is being submitted to Formspree`);
+  }
+  
+  if(serviceForm) serviceForm.addEventListener('submit', () => handleFormSubmit(event, 'Service Subscription'));
+  if(newsForm) newsForm.addEventListener('submit', () => handleFormSubmit(event, 'Newsletter Sub'));
+  if(footerSubDb) footerSubDb.addEventListener('submit', () => handleFormSubmit(event, 'Footer Subscription DB'));
+  
+  // Set initial active state
+  setActive('nav-home');
+  
+  // Additional hover effects or console ready message
+  console.log("NUSWeb ready — Web Designing icon & full services active.");
+</script>
+</body>
+</html>

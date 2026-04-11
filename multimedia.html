@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>NUSWeb | Creative Digital Ecosystem</title>
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: modern sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefefe;
+            color: #111;
+            scroll-behavior: smooth;
+        }
+
+        /* container utility */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background: #0a0c10;
+            color: white;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            background: linear-gradient(135deg, #ffb347, #ff7e05);
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #0a0c10;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .logo-text {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(120deg, #FFD966, #FFA500);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.2s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover {
+            color: #ffaa33;
+            border-bottom-color: #ffaa33;
+        }
+        /* search facility */
+        .search-wrap {
+            display: flex;
+            background: #1e1f24;
+            border-radius: 60px;
+            padding: 6px 12px;
+            align-items: center;
+            gap: 8px;
+        }
+        .search-wrap input {
+            background: transparent;
+            border: none;
+            padding: 8px 8px;
+            color: white;
+            font-size: 0.9rem;
+            width: 180px;
+            outline: none;
+        }
+        .search-wrap input::placeholder {
+            color: #aaa;
+        }
+        .search-wrap button {
+            background: #ff9f2e;
+            border: none;
+            border-radius: 40px;
+            padding: 6px 16px;
+            font-weight: bold;
+            color: #0a0c10;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .search-wrap button:hover {
+            background: #ffb347;
+        }
+        /* responsive */
+        @media (max-width: 780px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            .search-wrap {
+                justify-content: center;
+                width: 100%;
+            }
+            .search-wrap input {
+                width: 100%;
+            }
+        }
+
+        /* ========== HERO / BODY SECTION ========== */
+        .hero {
+            padding: 48px 0 32px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+        }
+        .hero p {
+            color: #444;
+            margin-top: 12px;
+        }
+
+        /* Services Icons Grid (small size) */
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            margin: 40px 0 48px;
+        }
+        .service-card {
+            background: white;
+            width: 110px;
+            text-align: center;
+            padding: 18px 8px;
+            border-radius: 32px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            transition: 0.2s ease;
+            border: 1px solid #eee;
+        }
+        .service-card i {
+            font-size: 2.6rem;
+            color: #e07c1f;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .service-card span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffb347;
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+        }
+
+        /* Subscription Application Form + Payment notice */
+        .subscription-section {
+            background: #f8f9fc;
+            border-radius: 48px;
+            padding: 32px 28px;
+            margin: 20px 0 40px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.05);
+            border: 1px solid #eaeef5;
+        }
+        .form-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 24px 0;
+        }
+        .input-group {
+            flex: 1 1 240px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 28px;
+            border: 1px solid #ccc;
+            background: white;
+            font-family: inherit;
+            outline: none;
+            transition: 0.2s;
+        }
+        .input-group input:focus {
+            border-color: #ff9f2e;
+        }
+        .btn-submit {
+            background: #0a0c10;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 12px;
+        }
+        .btn-submit:hover {
+            background: #ff7e05;
+            color: #0a0c10;
+        }
+        .payment-note {
+            background: #fff3e0;
+            padding: 12px 20px;
+            border-radius: 36px;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* Strip of photos linked to websites */
+        .photo-strip {
+            margin: 40px 0 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 12px 0;
+            scrollbar-width: thin;
+        }
+        .strip-container {
+            display: inline-flex;
+            gap: 20px;
+        }
+        .strip-item {
+            display: inline-block;
+            width: 200px;
+            height: 130px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+        .strip-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .strip-item:hover {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0a0c10;
+            color: #ddd;
+            padding: 48px 0 32px;
+            margin-top: 48px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col {
+            flex: 1;
+            min-width: 160px;
+        }
+        .footer-col h4 {
+            color: #ffaa33;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: 0.2s;
+        }
+        .footer-col a:hover {
+            color: #ffaa33;
+            padding-left: 4px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+        }
+        .social-icons a {
+            font-size: 1.6rem;
+            color: #ccc;
+            margin-bottom: 0;
+        }
+        .footer-sub-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-sub-form input {
+            padding: 10px 12px;
+            border-radius: 60px;
+            border: none;
+        }
+        .footer-sub-form button {
+            background: #ff9f2e;
+            border: none;
+            padding: 10px;
+            border-radius: 60px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 0.75rem;
+            border-top: 1px solid #222;
+            padding-top: 24px;
+        }
+        @media (max-width: 680px) {
+            .footer-grid {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR with Logo: NUSWEB & search -->
+<div class="navbar">
+    <div class="container nav-container">
+        <div class="logo-area">
+            <div class="logo-icon">NW</div>
+            <div class="logo-text">NUSWEB</div>
+        </div>
+        <div class="nav-links">
+            <a href="#" id="homeLink">Home</a>
+            <a href="#" id="projectsLink">Projects</a>
+            <a href="#" id="partnershipLink">Partnership</a>
+            <a href="#" id="contactLink">Contact</a>
+        </div>
+        <div class="search-wrap">
+            <input type="text" id="searchInput" placeholder="Search github.com/NUSWeb-links...">
+            <button id="searchBtn"><i class="fas fa-search"></i> Go</button>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <!-- Hero welcome -->
+        <div class="hero">
+            <h1>Create, Capture, Amplify</h1>
+            <p>Premium creative services & production ecosystem</p>
+        </div>
+
+        <!-- SMALL ICONS SECTION: Filming, Photo Shooting, Instrumental making, Audio Production, Product Sales, Stage Shows, Video Production -->
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-video"></i><span>Filming</span></div>
+            <div class="service-card"><i class="fas fa-camera"></i><span>Photo Shooting</span></div>
+            <div class="service-card"><i class="fas fa-guitar"></i><span>Instrumental Making</span></div>
+            <div class="service-card"><i class="fas fa-headphones"></i><span>Audio Production</span></div>
+            <div class="service-card"><i class="fas fa-tags"></i><span>Product Sales</span></div>
+            <div class="service-card"><i class="fas fa-microphone-alt"></i><span>Stage Shows</span></div>
+            <div class="service-card"><i class="fas fa-film"></i><span>Video Production</span></div>
+        </div>
+
+        <!-- Services subscription application form linked to Formspree (payment form) -->
+        <div class="subscription-section" id="serviceFormSection">
+            <div class="form-title">🎬 Service Subscription Application</div>
+            <p>Apply for production packages & creative services — fill out the form below</p>
+            <form id="subscriptionPaymentForm" action="https://formspree.io/f/xojpznbv" method="POST">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required placeholder="John Carter">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" required placeholder="hello@domain.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Service Interest</label>
+                        <select name="service">
+                            <option>Filming</option>
+                            <option>Photo Shooting</option>
+                            <option>Instrumental Making</option>
+                            <option>Audio Production</option>
+                            <option>Product Sales</option>
+                            <option>Stage Shows</option>
+                            <option>Video Production</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Preferred Date</label>
+                        <input type="date" name="preferred_date">
+                    </div>
+                </div>
+                <div class="input-group" style="flex:1 1 100%;">
+                    <label>Additional Notes / Project details</label>
+                    <input type="text" name="message" placeholder="Tell us about your vision...">
+                </div>
+                <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Apply for Services</button>
+                <div class="payment-note">
+                    <i class="fas fa-lock"></i> Secure payment & booking handled via Formspree (xojpznbv)
+                </div>
+            </form>
+        </div>
+
+        <!-- STRIP OF PHOTOS linked to external websites -->
+        <div class="photo-strip">
+            <div class="strip-container">
+                <a href="https://www.pexels.com" target="_blank" class="strip-item"><img src="https://picsum.photos/id/1015/300/180" alt="mountain photography"></a>
+                <a href="https://unsplash.com" target="_blank" class="strip-item"><img src="https://picsum.photos/id/104/300/180" alt="waterfall nature"></a>
+                <a href="https://www.behance.net" target="_blank" class="strip-item"><img src="https://picsum.photos/id/106/300/180" alt="flower macro"></a>
+                <a href="https://vimeo.com" target="_blank" class="strip-item"><img src="https://picsum.photos/id/20/300/180" alt="workspace"></a>
+                <a href="https://www.sony.com" target="_blank" class="strip-item"><img src="https://picsum.photos/id/30/300/180" alt="coffee and tech"></a>
+                <a href="https://www.redbull.com" target="_blank" class="strip-item"><img src="https://picsum.photos/id/91/300/180" alt="stage lighting"></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER with social icons, Telephone, Projects, Promotions, contacts, Subscription form linked to https://formspree.io/f/xzzekvlr -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>NUSWeb</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p style="margin-top: 20px;"><i class="fas fa-phone-alt"></i> +1 (555) 789-2340</p>
+                <p><i class="fas fa-envelope"></i> hello@nusweb.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="#" id="footerHomeLink">Home</a>
+                <a href="#" id="footerProjectsLink">Projects</a>
+                <a href="#" id="footerPromotionsLink">Promotions</a>
+                <a href="#" id="footerContactLink">Contacts</a>
+                <a href="#" id="footerPartnershipLink">Partnership</a>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter Subscription</h4>
+                <form id="footerSubscriptionForm" action="https://formspree.io/f/xzzekvlr" method="POST">
+                    <div class="footer-sub-form">
+                        <input type="email" name="email" placeholder="Your email address" required>
+                        <input type="text" name="name" placeholder="Your name (optional)">
+                        <button type="submit">Subscribe <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <p style="font-size: 0.7rem; margin-top: 10px;">Get updates, promos & exclusive content</p>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 NUSWeb — Creative production hub. All visions realized.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ========== SEARCH FACILITY: access any website links in my github.com account ==========
+    // Mock repository of internal/external website links relevant to github.com/nusweb (simulate)
+    // We define a dataset of links that could be pages from a GitHub account (actual or demo)
+    // Also user can search any keyword and we'll redirect to github search or profile?
+    // Requirement: "search facility to access any of the website links in my github.com account"
+    // We assume user has a github pages or repos containing links. We'll simulate with a predefined set of project links
+    // plus a dynamic redirect to github.com search? For practical, we provide array of links related to NUSWeb github.
+    
+    const githubLinksDatabase = [
+        { name: "NUSWeb Main Portfolio", url: "https://github.com/NUSWeb/nusweb-portfolio" },
+        { name: "Film Production Showreel", url: "https://github.com/NUSWeb/film-lab" },
+        { name: "Photo Studio Tools", url: "https://github.com/NUSWeb/photo-studio" },
+        { name: "Audio Production Plugins", url: "https://github.com/NUSWeb/audio-prod" },
+        { name: "Instrumental Maker Kit", url: "https://github.com/NUSWeb/instrument-mkr" },
+        { name: "Stage Show Manager", url: "https://github.com/NUSWeb/stage-manager" },
+        { name: "Video Editing Resources", url: "https://github.com/NUSWeb/video-edit" },
+        { name: "Product Sales Dashboard", url: "https://github.com/NUSWeb/sales-dash" },
+        { name: "Partnership Program", url: "https://github.com/NUSWeb/partners" }
+    ];
+    
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    
+    function performSearch() {
+        let query = searchInput.value.trim().toLowerCase();
+        if (query === "") {
+            alert("Please enter a keyword to search for related GitHub links (e.g., filming, audio, sales)");
+            return;
+        }
+        // filter links based on query matching name
+        const results = githubLinksDatabase.filter(item => 
+            item.name.toLowerCase().includes(query) || 
+            item.url.toLowerCase().includes(query)
+        );
+        if (results.length === 0) {
+            // fallback: open github search for "NUSWeb" + query as a courtesy
+            let fallbackUrl = `https://github.com/search?q=NUSWeb+${encodeURIComponent(query)}&type=repositories`;
+            if (confirm(`No direct match found. Open GitHub search for "${query}" in NUSWeb context?`)) {
+                window.open(fallbackUrl, '_blank');
+            }
+        } else if (results.length === 1) {
+            window.open(results[0].url, '_blank');
+        } else {
+            // show list as selectable using a simple dialog
+            let menu = "Multiple links found:\n";
+            results.forEach((item, idx) => {
+                menu += `${idx+1}. ${item.name}\n`;
+            });
+            menu += "Enter number to open (0 to cancel):";
+            let choice = prompt(menu);
+            let idxChoice = parseInt(choice);
+            if (!isNaN(idxChoice) && idxChoice >=1 && idxChoice <= results.length) {
+                window.open(results[idxChoice-1].url, '_blank');
+            }
+        }
+    }
+    
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') performSearch();
+    });
+    
+    // NAVBAR interactions (Home, Projects, Partnership, Contact) linking Home to index.html
+    // For smooth demo, if we are on index.html, home reloads. For others section we simulate anchor scrolling.
+    const homeLink = document.getElementById('homeLink');
+    const projectsLink = document.getElementById('projectsLink');
+    const partnershipLink = document.getElementById('partnershipLink');
+    const contactLink = document.getElementById('contactLink');
+    // footer links also
+    const footerHomeLink = document.getElementById('footerHomeLink');
+    const footerProjectsLink = document.getElementById('footerProjectsLink');
+    const footerPromotionsLink = document.getElementById('footerPromotionsLink');
+    const footerContactLink = document.getElementById('footerContactLink');
+    const footerPartnershipLink = document.getElementById('footerPartnershipLink');
+    
+    function navigateToHome() {
+        window.location.href = "index.html";
+    }
+    homeLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToHome();
+    });
+    footerHomeLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToHome();
+    });
+    
+    // For Projects, Partnership, Contact we scroll to relevant sections or show info (since no dedicated pages, we create anchors/info)
+    // but requirement: Projects, Partnership, Contact in top navbar. We'll display dynamic info panels or scroll to footer or custom alert? Better to display modals or scroll to services / subscription area.
+    // user expects interaction: we can smoothly scroll to service area for "Projects", for Partnership scroll to footer or show a toast, for Contact scroll to footer contact.
+    projectsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('.services-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // also highlight
+    });
+    partnershipLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const partnershipSection = document.querySelector('.footer');
+        partnershipSection.scrollIntoView({ behavior: 'smooth' });
+        alert("🤝 Partnership opportunities: Collaborate with NUSWeb on creative productions. Reach us via contact or socials.");
+    });
+    contactLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const footerElem = document.querySelector('.footer');
+        footerElem.scrollIntoView({ behavior: 'smooth' });
+    });
+    // Additional footer link behaviors:
+    footerProjectsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('.services-grid').scrollIntoView({ behavior: 'smooth' });
+    });
+    footerPromotionsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("🔥 Current Promotions: 15% off on audio production & video bundles! Subscribe for updates.");
+    });
+    footerContactLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const footer = document.querySelector('.footer');
+        footer.scrollIntoView({ behavior: 'smooth' });
+    });
+    footerPartnershipLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("📢 Partner with NUSWeb — Let's build iconic media experiences. Email partnership@nusweb.com");
+    });
+    
+    // Ensure subscription application form linked to https://formspree.io/f/xojpznbv already set in action.
+    // Also footer subscription form uses action="https://formspree.io/f/xzzekvlr". Both proper.
+    // Add confirmation on submit for better UX (but formspree handles redirect, but we can show thank you)
+    const subForm = document.getElementById('subscriptionPaymentForm');
+    if (subForm) {
+        subForm.addEventListener('submit', function(e) {
+            // allow default submission to formspree; we add a small message but not prevent
+            setTimeout(() => {}, 10);
+            // just optional friendly alert (non-blocking)
+            alert("✅ Service request sent! We'll contact you shortly. (Formspree secure)");
+        });
+    }
+    const footerSubForm = document.getElementById('footerSubscriptionForm');
+    if (footerSubForm) {
+        footerSubForm.addEventListener('submit', function(e) {
+            // let form submit normally to formspree endpoint xzzekvlr
+            alert("📧 Thanks for subscribing! You'll receive updates & offers.");
+        });
+    }
+    
+    // small extra: ensure that all images in photo strip have alt + working external links
+    // also add dynamic year
+    const yearSpan = document.createElement('span');
+    // logo extra hover effect
+    console.log("NUSWeb frontpage ready — search any github account links");
+    
+    // Bonus: modify search placeholder to reflect github links
+    searchInput.placeholder = "e.g., filming, audio, stage, sales...";
+</script>
+</body>
+</html>
