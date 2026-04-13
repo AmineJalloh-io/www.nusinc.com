@@ -29,23 +29,26 @@
             padding: 0 24px;
         }
 
-        /* ========== NAVBAR ========== */
-        .navbar {
-            background: #0a0c10;
-            color: white;
-            padding: 16px 0;
+       /* header & navbar */
+        header {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            backdrop-filter: blur(2px);
+            background: rgba(255,255,255,0.96);
         }
-        .nav-container {
+
+        .navbar {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
+            padding: 16px 0;
             gap: 20px;
         }
+
         .logo-area {
             display: flex;
             align-items: center;
@@ -76,22 +79,21 @@
         .nav-links {
             display: flex;
             gap: 28px;
-            align-items: center;
-            flex-wrap: wrap;
+            list-style: none;
         }
+
         .nav-links a {
-            color: #f0f0f0;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            color: #1e293b;
             transition: 0.2s;
-            padding: 6px 0;
-            border-bottom: 2px solid transparent;
+            font-size: 1rem;
         }
+
         .nav-links a:hover {
-            color: #ffaa33;
-            border-bottom-color: #ffaa33;
+            color: #2563eb;
         }
+        
         /* search facility */
         .search-wrap {
             display: flex;
@@ -371,25 +373,27 @@
 </head>
 <body>
 
-<!-- NAVBAR with Logo: NUSWEB & search -->
-<div class="navbar">
-    <div class="container nav-container">
-        <div class="logo-area">
-            <div class="logo-icon">NW</div>
-            <div class="logo-text">NUSWEB</div>
-        </div>
-        <div class="nav-links">
-            <a href="#" id="homeLink">Home</a>
-            <a href="#" id="projectsLink">Projects</a>
-            <a href="#" id="partnershipLink">Partnership</a>
-            <a href="#" id="contactLink">Contact</a>
-        </div>
-        <div class="search-wrap">
-            <input type="text" id="searchInput" placeholder="Search github.com/NUSWeb-links...">
-            <button id="searchBtn"><i class="fas fa-search"></i> Go</button>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo-area">
+                <div class="logo-icon">NW</div>
+                <span class="logo-text">NUSWeb</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="partners.html">Partnership</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Search facility to access any website links in my github.com account -->
+            <div class="search-wrapper">
+                <input type="text" id="siteSearchInput" placeholder="Search my GitHub repos / pages...">
+                <button id="searchBtn"><i class="fas fa-search"></i> Go</button>
+            </div>
         </div>
     </div>
-</div>
+</header>
 
 <main>
     <div class="container">
