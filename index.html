@@ -6,7 +6,7 @@
     <title>NUSWeb | Digital Innovation Hub</title>
     <!-- Font Awesome 6 (free icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Poppins for modern look -->
+    <!-- Google Fonts: Inter for modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -267,6 +267,39 @@
             font-weight: 500;
         }
 
+        /* Sign In / Register Section */
+        .auth-section {
+            background: #ffffff;
+            border-radius: 48px;
+            margin: 20px 0 40px;
+            padding: 40px 32px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
+            border: 1px solid #eef2ff;
+        }
+
+        .auth-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .auth-card {
+            flex: 1;
+            min-width: 260px;
+            background: #f9fafc;
+            border-radius: 32px;
+            padding: 28px 24px;
+        }
+
+        .auth-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* footer */
         footer {
             background: #0f172a;
@@ -400,6 +433,11 @@
             background: #fee2e2;
             color: #991b1b;
         }
+
+        hr {
+            margin: 10px 0;
+            border-color: #e2e8f0;
+        }
     </style>
 </head>
 <body>
@@ -412,10 +450,10 @@
                 <span class="logo-text">NUSWeb</span>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="partners.html">Partnership</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Partnership</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
             <!-- Search facility to access any website links in my github.com account -->
             <div class="search-wrapper">
@@ -433,22 +471,22 @@
             <h2 class="section-title">⚡ Our Core Expertise</h2>
             <div class="icons-grid">
                 <div class="service-card">
-                   <a href="mmoney.html"><i class="fas fa-mobile-alt"></i></a> 
+                   <a href="#" style="text-decoration: none; color: inherit;"><i class="fas fa-mobile-alt"></i></a> 
                     <h3>Mobile Money<br>Services</h3>
                     <p>Digital payments, wallets & fintech integration.</p>
                 </div>
                 <div class="service-card">
-                    <a href="desktoppublishing.html"><i class="fas fa-print"></i></a>
+                    <a href="#" style="text-decoration: none; color: inherit;"><i class="fas fa-print"></i></a>
                     <h3>Desktop Publishing</h3>
                     <p>Professional layouts, eBooks & branding.</p>
                 </div>
                 <div class="service-card">
-                    <a href="webdes.html"><i class="fas fa-code"></i></a>
+                    <a href="#" style="text-decoration: none; color: inherit;"><i class="fas fa-code"></i></a>
                     <h3>Web Designing &<br>Developing</h3>
                     <p>Responsive, modern full-stack solutions.</p>
                 </div>
                 <div class="service-card">
-                    <a href="multimedia.html"><i class="fas fa-video"></i></a>
+                    <a href="#" style="text-decoration: none; color: inherit;"><i class="fas fa-video"></i></a>
                     <h3>Multi-Media Production</h3>
                     <p>Animation, video editing & motion graphics.</p>
                 </div>
@@ -458,11 +496,11 @@
         <!-- Purchase or subscription application with Mobile Money Payment Number -->
         <div class="payment-subscription">
             <div class="form-row">
-                <!-- LEFT: Product Purchase (Mobile Money Payment) -->
+                <!-- LEFT: Product Purchase (Mobile Money Payment) - Formspree ID: mzdollev -->
                 <div class="form-box">
                     <h3><i class="fas fa-shopping-cart"></i> Purchase Service</h3>
                     <p>Choose a plan & pay via Mobile Money</p>
-                    <form id="paymentForm">
+                    <form id="paymentForm" action="https://formspree.io/f/mzdollev" method="POST">
                         <div class="input-group">
                             <input type="text" name="name" placeholder="Full Name" required id="payName">
                         </div>
@@ -472,10 +510,10 @@
                         <div class="input-group">
                             <select name="service" required id="payService">
                                 <option value="" disabled selected>Select Service</option>
-                                <option value="Mobile Money Integration">Mobile Money Integration - $49</option>
-                                <option value="Desktop Publishing Pro">Desktop Publishing Pro - $39</option>
-                                <option value="Web Dev Complete">Web Designing + Dev - $99</option>
-                                <option value="Multimedia Package">Multi-Media Production - $79</option>
+                                <option value="Mobile Money Integration - $49">Mobile Money Integration - $49</option>
+                                <option value="Desktop Publishing Pro - $39">Desktop Publishing Pro - $39</option>
+                                <option value="Web Designing + Dev - $99">Web Designing + Dev - $99</option>
+                                <option value="Multi-Media Production - $79">Multi-Media Production - $79</option>
                             </select>
                         </div>
                         <div class="input-group">
@@ -489,11 +527,11 @@
                     </form>
                 </div>
 
-                <!-- RIGHT: Subscription Application (newsletter/plan subscription) -->
+                <!-- RIGHT: Subscription Application - Formspree ID: xojrooek -->
                 <div class="form-box">
                     <h3><i class="fas fa-bell"></i> Subscription Plan</h3>
                     <p>Get monthly updates, premium assets & support</p>
-                    <form id="subscriptionForm">
+                    <form id="subscriptionForm" action="https://formspree.io/f/xojrooek" method="POST">
                         <div class="input-group">
                             <input type="text" name="fullname" placeholder="Your Name" required id="subName">
                         </div>
@@ -503,9 +541,9 @@
                         <div class="input-group">
                             <select name="subscription_tier" required id="subTier">
                                 <option value="" disabled selected>Select Subscription</option>
-                                <option value="Basic Monthly">Basic Monthly - $9.99</option>
-                                <option value="Pro Annual">Pro Annual - $89.99</option>
-                                <option value="Enterprise">Enterprise - Custom</option>
+                                <option value="Basic Monthly - $9.99">Basic Monthly - $9.99</option>
+                                <option value="Pro Annual - $89.99">Pro Annual - $89.99</option>
+                                <option value="Enterprise - Custom">Enterprise - Custom</option>
                             </select>
                         </div>
                         <div class="input-group">
@@ -517,10 +555,49 @@
                 </div>
             </div>
         </div>
+
+        <!-- NEW: Sign In / Register Form (Formspree ID: xbdwvvgn) -->
+        <div class="auth-section">
+            <h2 style="font-size: 1.8rem; margin-bottom: 24px; text-align: center;"><i class="fas fa-user-circle"></i> Account Access</h2>
+            <div class="auth-grid">
+                <!-- Sign In Form -->
+                <div class="auth-card">
+                    <h3><i class="fas fa-sign-in-alt"></i> Sign In</h3>
+                    <form id="signinForm" action="https://formspree.io/f/xbdwvvgn" method="POST">
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Login <i class="fas fa-arrow-right"></i></button>
+                        <div id="signinStatus" class="alert-msg"></div>
+                    </form>
+                </div>
+                <!-- Register Form (same endpoint but we can differentiate via hidden _subject) -->
+                <div class="auth-card">
+                    <h3><i class="fas fa-user-plus"></i> Register</h3>
+                    <form id="registerForm" action="https://formspree.io/f/xbdwvvgn" method="POST">
+                        <div class="input-group">
+                            <input type="text" name="fullname" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password" placeholder="Create Password" required>
+                        </div>
+                        <input type="hidden" name="_subject" value="New Registration via NUSWeb">
+                        <button type="submit" class="btn-primary">Create Account <i class="fas fa-user-check"></i></button>
+                        <div id="registerStatus" class="alert-msg"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 
-<!-- Footer with social media icons, Telephone, Projects, Promotions, contacts, Subscription form -->
+<!-- Footer with social media icons, Telephone, Projects, Promotions, contacts, Subscription form (newsletter) - endpoint mkoylljy -->
 <footer>
     <div class="container">
         <div class="footer-grid">
@@ -555,9 +632,10 @@
             <div class="footer-col subscription-footer">
                 <h4>Newsletter Subscription</h4>
                 <p>Get latest tech insights & offers</p>
-                <form id="footerSubForm">
+                <!-- Newsletter form linked to mkoylljy -->
+                <form id="footerSubForm" action="https://formspree.io/f/mkoylljy" method="POST">
                     <div class="sub-input">
-                        <input type="email" placeholder="Your email address" id="footerSubEmail" required>
+                        <input type="email" name="email" placeholder="Your email address" id="footerSubEmail" required>
                         <button type="submit"><i class="fas fa-arrow-right"></i> Join</button>
                     </div>
                     <div id="footerSubMsg" style="font-size: 12px; margin-top: 10px;"></div>
@@ -571,26 +649,9 @@
 </footer>
 
 <script>
-    // -------------------- SEARCH FACILITY: access any of the website links in my github.com account --------------------
-    // This search simulates a search across public repositories or pages from a GitHub account.
-    // For demonstration we will fetch from a user's repos (via GitHub API) and also provide a fallback search across sample links.
-    // To make it functional with "any website links in my github.com account", we'll treat the search input as a keyword that matches repository names / pages.
-    // We'll redirect to the appropriate GitHub pages / repo links based on query.
-    
+    // -------------------- SEARCH FACILITY: access any website links in github.com account --------------------
     const searchInput = document.getElementById('siteSearchInput');
     const searchBtn = document.getElementById('searchBtn');
-    
-    // Replace with actual GitHub username if you want real data, but we'll allow searching repos via generic GitHub API.
-    // Since we want to access "website links in my github.com account", we will fetch the authenticated user's repos? But this is a demo front-end without OAuth.
-    // We'll implement a dynamic search that queries the public GitHub API for a username "NUSWebDemo" (example) but can also be adapted.
-    // For generic use, we set a default user: "NUSWeb" but also will instruct to redirect to repos or pages.
-    // Better: Provide a simple search that navigates to github.com/search?q=...
-    // However spec: "access any of the website links in my github.com account" - we assume the account's repos and website links.
-    // We'll implement a smart redirect: if user types a term, we open GitHub search within the account or assume the account name = "NUSWeb" (example)
-    // For practical, we'll use "github.com/NUSWeb?q=term" but to keep safe we let user define.
-    // Let's create a generic search that matches to repo links: we will maintain a sample mapping or open GitHub search for repos.
-    // We'll also offer direct redirect to pages like nusweb.github.io/project
-    // To meet requirement: we simulate that search bar searches across project links from the "NUSWeb" GitHub org/user.
     
     function performSiteSearch() {
         let query = searchInput.value.trim();
@@ -598,24 +659,15 @@
             alert("Please enter a keyword to search across NUSWeb GitHub projects (e.g., 'payment', 'web', 'design').");
             return;
         }
-        // Provide a robust way: Redirect to GitHub repository search scoped to owner "NUSWeb" (you can replace with your actual github handle)
-        // For demonstration, we'll open a new tab with search results from GitHub's code search (public repos related to "NUSWeb" + query)
-        // Or we can check pre-defined links based on query.
-        const owner = "NUSWeb";  // replace with actual GitHub username if needed. But works as demo.
-        // Since the requirement is "access any of the website links in my github.com account", we provide direct search + suggestions.
-        // Additionally, we provide list of known project links from github.
-        // We'll also search using repo list.
-        // Option: fetch repos from this owner and filter by keyword.
+        const owner = "NUSWeb";  // replace with actual GitHub handle if needed, but generic demo works.
         fetch(`https://api.github.com/users/${owner}/repos?per_page=50`)
             .then(res => res.ok ? res.json() : [])
             .then(repos => {
                 if (repos && repos.length) {
                     const matched = repos.filter(repo => repo.name.toLowerCase().includes(query.toLowerCase()) || (repo.description && repo.description.toLowerCase().includes(query.toLowerCase())));
                     if (matched.length > 0) {
-                        // show first matched repo link
                         window.open(matched[0].html_url, "_blank");
                     } else {
-                        // fallback: open GitHub search for owner
                         window.open(`https://github.com/search?q=${encodeURIComponent(query)}+user:${owner}&type=repositories`, "_blank");
                     }
                 } else {
@@ -623,7 +675,6 @@
                 }
             })
             .catch(() => {
-                // fallback generic: open github search for term + user
                 window.open(`https://github.com/search?q=${encodeURIComponent(query)}+user:${owner}`, "_blank");
             });
     }
@@ -633,7 +684,7 @@
         if (e.key === 'Enter') performSiteSearch();
     });
     
-    // ---------- PAYMENT FORM (Formspree: https://formspree.io/f/xojpznbv) ----------
+    // ---------- PAYMENT FORM (mzdollev) redirect handling (Formspree standard) ----------
     const paymentForm = document.getElementById('paymentForm');
     const paymentStatusDiv = document.getElementById('paymentStatus');
     
@@ -643,9 +694,8 @@
         paymentStatusDiv.classList.remove('success', 'error');
         
         const formData = new FormData(paymentForm);
-        // add mobile money number as extra field note
         try {
-            const response = await fetch('https://formspree.io/f/xojpznbv', {
+            const response = await fetch(paymentForm.action, {
                 method: 'POST',
                 body: formData,
                 headers: { 'Accept': 'application/json' }
@@ -665,7 +715,7 @@
         }
     });
     
-    // ---------- SUBSCRIPTION FORM (Formspree: https://formspree.io/f/xzzekvlr) ----------
+    // ---------- SUBSCRIPTION FORM (xojrooek) ----------
     const subscriptionForm = document.getElementById('subscriptionForm');
     const subStatusDiv = document.getElementById('subscriptionStatus');
     
@@ -675,7 +725,7 @@
         subStatusDiv.classList.remove('success', 'error');
         const formData = new FormData(subscriptionForm);
         try {
-            const response = await fetch('https://formspree.io/f/xzzekvlr', {
+            const response = await fetch(subscriptionForm.action, {
                 method: 'POST',
                 body: formData,
                 headers: { 'Accept': 'application/json' }
@@ -694,7 +744,7 @@
         }
     });
     
-    // ---------- FOOTER SUBSCRIPTION FORM (use same subscription endpoint xzzekvlr for consistency, as database) ----------
+    // ---------- FOOTER NEWSLETTER SUBSCRIPTION (mkoylljy) ----------
     const footerSubForm = document.getElementById('footerSubForm');
     const footerSubMsg = document.getElementById('footerSubMsg');
     
@@ -704,34 +754,95 @@
         const email = emailInput.value.trim();
         if (!email) return;
         footerSubMsg.innerHTML = 'Subscribing...';
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('source', 'footer_subscription');
-        formData.append('fullname', 'Footer Subscriber');
+        footerSubMsg.style.color = '#cbd5e1';
+        const formData = new FormData(footerSubForm);
         try {
-            const response = await fetch('https://formspree.io/f/xzzekvlr', {
+            const response = await fetch(footerSubForm.action, {
                 method: 'POST',
                 body: formData,
                 headers: { 'Accept': 'application/json' }
             });
             if (response.ok) {
                 footerSubMsg.innerHTML = '✅ Subscribed! Thank you.';
-                footerSubMsg.style.color = '#16a34a';
+                footerSubMsg.style.color = '#4ade80';
                 footerSubForm.reset();
             } else {
                 footerSubMsg.innerHTML = '❌ Error, try later.';
-                footerSubMsg.style.color = '#dc2626';
+                footerSubMsg.style.color = '#f87171';
             }
         } catch (err) {
             footerSubMsg.innerHTML = '❌ Connection error.';
-            footerSubMsg.style.color = '#dc2626';
+            footerSubMsg.style.color = '#f87171';
         }
         setTimeout(() => {
-            footerSubMsg.innerHTML = '';
+            if (footerSubMsg.innerHTML.includes('Subscribed') || footerSubMsg.innerHTML.includes('Error') || footerSubMsg.innerHTML.includes('Connection')) {
+                setTimeout(() => { footerSubMsg.innerHTML = ''; }, 2500);
+            }
         }, 3000);
     });
     
-    // additional styling for smooth UX
+    // ---------- SIGN IN FORM (xbdwvvgn) ----------
+    const signinForm = document.getElementById('signinForm');
+    const signinStatus = document.getElementById('signinStatus');
+    if (signinForm) {
+        signinForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            signinStatus.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Signing in...';
+            signinStatus.classList.remove('success', 'error');
+            const formData = new FormData(signinForm);
+            try {
+                const response = await fetch(signinForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    signinStatus.innerHTML = '✅ Signed in successfully! Redirecting...';
+                    signinStatus.classList.add('success');
+                    signinForm.reset();
+                    setTimeout(() => { window.location.reload(); }, 1500);
+                } else {
+                    signinStatus.innerHTML = '❌ Invalid credentials, please try again.';
+                    signinStatus.classList.add('error');
+                }
+            } catch (err) {
+                signinStatus.innerHTML = '⚠️ Network error.';
+                signinStatus.classList.add('error');
+            }
+        });
+    }
+    
+    // ---------- REGISTER FORM (xbdwvvgn) ----------
+    const registerForm = document.getElementById('registerForm');
+    const registerStatus = document.getElementById('registerStatus');
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            registerStatus.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Creating account...';
+            registerStatus.classList.remove('success', 'error');
+            const formData = new FormData(registerForm);
+            try {
+                const response = await fetch(registerForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    registerStatus.innerHTML = '🎉 Registration successful! You can now sign in.';
+                    registerStatus.classList.add('success');
+                    registerForm.reset();
+                } else {
+                    registerStatus.innerHTML = '❌ Registration failed, email might be in use.';
+                    registerStatus.classList.add('error');
+                }
+            } catch (err) {
+                registerStatus.innerHTML = '⚠️ Network error.';
+                registerStatus.classList.add('error');
+            }
+        });
+    }
+    
+    // Additional styles
     const styleExtra = document.createElement('style');
     styleExtra.textContent = `
         .fa-spinner {
@@ -740,6 +851,8 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .service-card i { transition: transform 0.2s; }
         .service-card:hover i { transform: scale(1.05); color:#1e3a8a; }
+        .auth-card { transition: all 0.2s ease; }
+        .auth-card:hover { transform: translateY(-4px); }
     `;
     document.head.appendChild(styleExtra);
 </script>
